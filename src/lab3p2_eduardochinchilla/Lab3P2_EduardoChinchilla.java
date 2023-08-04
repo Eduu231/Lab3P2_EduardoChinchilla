@@ -519,8 +519,30 @@ public class Lab3P2_EduardoChinchilla {
                     break;
                 }
                 case 7: {
-                    System.out.println(listarVehiculos(vehiculo));
+                    double totalPagar =0;
+                    double TasaVehicular =525;
                     
+                    System.out.println(listarVehiculos(vehiculo));
+                    System.out.println("Ingrese el indice del vehiculo a generar la boleta:  ");
+                    int pos = read.nextInt();
+
+                    if (pos >= 0 && pos < vehiculo.size()) {
+
+                        
+                        JOptionPane.showMessageDialog(null, "Boleta de Revision Vehicular");
+                        System.out.println(vehiculo.get(pos));
+                        if ( vehiculo.get(pos) instanceof Automovil){
+                            totalPagar = TasaVehicular + 1200;
+                        }else  if (vehiculo.get(pos) instanceof Motocicleta) {
+                            totalPagar = TasaVehicular + 200;
+                        }else  if (vehiculo.get(pos) instanceof Autobus) {
+                            totalPagar = TasaVehicular + 1000;  
+                        }
+                    } else {
+                        System.out.println("El indice ingresado esta fuera de rango");
+
+                    }
+                    System.out.println("Su total a pagar es: " + totalPagar);
                     break;
                 }
                 case 8: {
