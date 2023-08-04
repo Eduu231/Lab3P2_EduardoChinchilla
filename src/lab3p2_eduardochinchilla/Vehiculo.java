@@ -2,6 +2,7 @@
 package lab3p2_eduardochinchilla;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -12,8 +13,9 @@ public class Vehiculo {
    private String tipo;
    private Color color;
    private Date date;
+   private ArrayList vehiculo;
 
-    public Vehiculo(int numeroPlaca, String marca, String modelo, String tipo, Color color, Date date) {
+    public Vehiculo (int numeroPlaca, String marca, String modelo, String tipo, Color color, Date date) {
         this.numeroPlaca = numeroPlaca;
         this.marca = marca;
         this.modelo = modelo;
@@ -69,6 +71,11 @@ public class Vehiculo {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" + "numeroPlaca=" + numeroPlaca + ", marca=" + marca + ", modelo=" + modelo + ", tipo=" + tipo + ", color=" + color + ", date=" + date + ", vehiculo=" + vehiculo + '}';
     }
    
    

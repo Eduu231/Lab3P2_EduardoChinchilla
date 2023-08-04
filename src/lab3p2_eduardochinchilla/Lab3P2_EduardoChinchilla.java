@@ -6,8 +6,8 @@ public class Lab3P2_EduardoChinchilla {
     
     static Scanner read = new Scanner(System.in);
     public static void main(String[] args) {
-
         
+    
         
         
         
