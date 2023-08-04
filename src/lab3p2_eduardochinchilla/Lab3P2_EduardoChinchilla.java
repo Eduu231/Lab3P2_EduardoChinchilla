@@ -24,31 +24,34 @@ public class Lab3P2_EduardoChinchilla {
 
             switch (opcion) {
                 case 1: {
-                    
+
                     System.out.println("Agregar el numero de Placa: ");
                     String placa = read.nextLine();
+
+                    while (!placa.startsWith("H") && !placa.startsWith("h")) {
+                        System.out.println("Error ");
+                        System.out.println("Agregar el numero de Placa: ");
+                        placa = read.nextLine();
+                    }
                     read.nextLine();
                     System.out.println("Agregar la marca del vehiculo: ");
                     String marca = read.nextLine();
-                    
+
                     System.out.println("Agregar el modelo: ");
                     String modelo = read.nextLine();
-                    
-                    
+
                     System.out.println("Agregar el tipo de vehiculo: [turismo, camioneta, etc...]");
                     String tipoVehiculo = read.nextLine();
-                    
+
                     System.out.println("elegir el color del vehiculo: ");
                     Color color = JColorChooser.showDialog(null, "Color", Color.yellow);
 
-                    
                     System.out.println("Ingrese el año del vehiculo: ");
                     String fecha = read.nextLine();
                     DateFormat date = new SimpleDateFormat("yyyy");
                     Date date2 = new Date();
                     date2 = date.parse(fecha);
 
-                    
                     System.out.println("Agregar tipo de combustible: [diesel,regular o super]");
                     String tipoCombustible = read.nextLine().toLowerCase();
                     while (!tipoCombustible.equals("diesel") && !tipoCombustible.equals("regular") && !tipoCombustible.equals("super")) {
@@ -76,9 +79,48 @@ public class Lab3P2_EduardoChinchilla {
                     break;
                 }
                 case 2: {
+                    System.out.println("Agregar el numero de Placa: ");
+                    String placa = read.nextLine();
+
+                    while (!placa.startsWith("H") && !placa.startsWith("h")) {
+                        System.out.println("Error ");
+                        System.out.println("Agregar el numero de Placa: ");
+                        placa = read.nextLine();
+                    }
+                    read.nextLine();
+                    System.out.println("Agregar la marca del vehiculo: ");
+                    String marca = read.nextLine();
+
+                    System.out.println("Agregar el modelo: ");
+                    String modelo = read.nextLine();
+
+                    System.out.println("Agregar el tipo de vehiculo: [turismo, camioneta, etc...]");
+                    String tipoVehiculo = read.nextLine();
+
+                    System.out.println("elegir el color del vehiculo: ");
+                    Color color = JColorChooser.showDialog(null, "Color", Color.yellow);
+
+                    System.out.println("Ingrese el año del vehiculo: ");
+                    String fecha = read.nextLine();
+                    DateFormat date = new SimpleDateFormat("yyyy");
+                    Date date2 = new Date();
+                    date2 = date.parse(fecha);
+                    //vehiculo
+
+                    System.out.println("Velocidad maxima en km/h: ");
+                    double velocidad = read.nextDouble();
+
+                    System.out.println("Ingrese el peso en kg: ");
+                    double peso = read.nextDouble();
+
+                    System.out.println("Ingrese el consumo de combustible en L/km: ");
+                    double consumo = read.nextDouble();
+
+                    vehiculo.add(new Motocicleta(velocidad, peso, consumo, placa, marca, modelo, tipoVehiculo, color, date2));
                     break;
                 }
                 case 3: {
+                    
                     break;
                 }
                 case 4: {
