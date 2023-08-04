@@ -281,10 +281,94 @@ public class Lab3P2_EduardoChinchilla {
                             }
                             case 2: {
                                 System.out.println(listarMotos(vehiculo));
+                                System.out.println("Ingrese el indice a modicar:");
+                                int pos = read.nextInt();
+                                if (pos >= 0 && pos < vehiculo.size()) {
+
+                                    if (vehiculo.get(pos) instanceof Motocicleta) {
+                                        System.out.println("Atributo a modificar");
+                                        int atributoM = 0;
+                                        while (atributoM != 6) {
+
+                                            atributoM = menuModMoto();
+
+                                            switch (atributoM) {
+                                                case 1: {
+                                                    read.nextLine();
+                                                    System.out.println("Agregar el numero de Placa: ");
+                                                    String placa = read.nextLine();
+
+                                                    while (!placa.startsWith("H") && !placa.startsWith("h")) {
+                                                        System.out.println("Error ");
+                                                        System.out.println("Agregar el numero de Placa: ");
+                                                        placa = read.nextLine();
+                                                    }
+                                                    ((Motocicleta) vehiculo.get(pos)).setNumeroPlaca(placa);
+                                                    break;
+                                                }
+                                                case 2: {
+                                                    System.out.println("Agregar la marca del vehiculo: ");
+                                                    String marca = read.nextLine();
+                                                    ((Motocicleta) vehiculo.get(pos)).setMarca(marca);
+                                                    break;
+                                                }
+                                                case 3: {
+                                                    System.out.println("Agregar el modelo: ");
+                                                    String modelo = read.nextLine();
+                                                    ((Motocicleta) vehiculo.get(pos)).setModelo(modelo);
+                                                    break;
+                                                }
+                                                case 4: {
+                                                    System.out.println("Agregar el tipo de vehiculo: [turismo, camioneta, etc...]");
+                                                    String tipoVehiculo = read.nextLine();
+                                                    ((Motocicleta) vehiculo.get(pos)).setTipo(tipoVehiculo);
+                                                    break;
+                                                }
+                                                case 5: {
+                                                    System.out.println("elegir el color del vehiculo: ");
+                                                    Color color = JColorChooser.showDialog(null, "Color", Color.yellow);
+                                                    ((Motocicleta) vehiculo.get(pos)).setColor(color);
+                                                    break;
+                                                }
+                                                case 6: {
+                                                    System.out.println("Ingrese el año del vehiculo: ");
+                                                    String fecha = read.nextLine();
+                                                    DateFormat date = new SimpleDateFormat("yyyy");
+                                                    Date date2 = new Date();
+                                                    date2 = date.parse(fecha);
+                                                    ((Motocicleta) vehiculo.get(pos)).setDate(date2);
+                                                    break;
+                                                }
+                                                case 7: {
+                                                    System.out.println("Velocidad maxima en km/h: ");
+                                                    double velocidad = read.nextDouble();
+                                                    ((Motocicleta) vehiculo.get(pos)).setVelocidadMaxima(velocidad);
+                                                    break;
+                                                }
+                                                case 8: {
+                                                    System.out.println("Ingrese el peso en kg: ");
+                                                    double peso = read.nextDouble();
+                                                    ((Motocicleta) vehiculo.get(pos)).setPeso(peso);
+
+                                                    break;
+                                                }
+                                                case 9: {
+                                                    System.out.println("Ingrese el consumo de combustible en L/km: ");
+                                                    double consumo = read.nextDouble();
+                                                    ((Motocicleta) vehiculo.get(pos)).setConsumoCombustible(consumo);
+                                                    break;
+                                                }
+                                                case 10: {
+                                                    System.out.println("Salir");
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                                 break;
                             }
                             case 3: {
-                                System.out.println(listarAutobus(vehiculo));
                                 break;
                             }
                             case 4: {
@@ -325,6 +409,48 @@ public class Lab3P2_EduardoChinchilla {
                      9- tipo transmision
                      10 - numero asiento
                      11 - Salir
+                     """);
+
+        op = read.nextInt();
+
+        return op;
+    }
+
+    private static int menuModMoto() {
+        int op = 0;
+
+        System.out.println("""
+                     1- Numero de placa
+                     2- marca
+                     3- modelo
+                     4- tipo
+                     5- color
+                     6- date
+                     7- velocidad maxima
+                     8- peso
+                     9- consumo de combustible
+                     10 - Salir
+                     """);
+
+        op = read.nextInt();
+
+        return op;
+    }
+
+    private static int menuModBus() {
+        int op = 0;
+
+        System.out.println("""
+                     1- Numero de placa
+                     2- marca
+                     3- modelo
+                     4- tipo
+                     5- color
+                     6- date
+                     7- catidad Pasajeros
+                     8- cantidad ejes
+                     9- longitud
+                     10 - Salir
                      """);
 
         op = read.nextInt();
