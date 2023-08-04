@@ -120,7 +120,44 @@ public class Lab3P2_EduardoChinchilla {
                     break;
                 }
                 case 3: {
-                    
+                    System.out.println("Agregar el numero de Placa: ");
+                    String placa = read.nextLine();
+
+                    while (!placa.startsWith("H") && !placa.startsWith("h")) {
+                        System.out.println("Error ");
+                        System.out.println("Agregar el numero de Placa: ");
+                        placa = read.nextLine();
+                    }
+                    read.nextLine();
+                    System.out.println("Agregar la marca del vehiculo: ");
+                    String marca = read.nextLine();
+
+                    System.out.println("Agregar el modelo: ");
+                    String modelo = read.nextLine();
+
+                    System.out.println("Agregar el tipo de vehiculo: [turismo, camioneta, etc...]");
+                    String tipoVehiculo = read.nextLine();
+
+                    System.out.println("elegir el color del vehiculo: ");
+                    Color color = JColorChooser.showDialog(null, "Color", Color.yellow);
+
+                    System.out.println("Ingrese el año del vehiculo: ");
+                    String fecha = read.nextLine();
+                    DateFormat date = new SimpleDateFormat("yyyy");
+                    Date date2 = new Date();
+                    date2 = date.parse(fecha);
+                    //vehiculo
+
+                    System.out.println("Ingrese la cantidad de pasajeros: ");
+                    int pasajeros = read.nextInt();
+
+                    System.out.println("Ingrese la cantidad de ejes: ");
+                    int ejes = read.nextInt();
+
+                    System.out.println("Ingrese la longitud en metros: ");
+                    double longitud = read.nextDouble();
+
+                    vehiculo.add(new Autobus(pasajeros, ejes, longitud, placa, marca, modelo, tipoVehiculo, color, date2));
                     break;
                 }
                 case 4: {
