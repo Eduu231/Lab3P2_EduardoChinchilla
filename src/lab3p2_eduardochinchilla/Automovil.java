@@ -12,7 +12,7 @@ public class Automovil extends Vehiculo{
     private String tipoTransmision;
     private int numeroAsientos;
 
-    public Automovil(String tipoCombustible, int numeroPuerta, String tipoTransmision, int numeroAsientos, int numeroPlaca, String marca, String modelo, String tipo, Color color, Date date) {
+    public Automovil(String tipoCombustible, int numeroPuerta, String tipoTransmision, int numeroAsientos, String numeroPlaca, String marca, String modelo, String tipo, Color color, Date date) {
         super(numeroPlaca, marca, modelo, tipo, color, date);
         this.tipoCombustible = tipoCombustible;
         this.numeroPuerta = numeroPuerta;

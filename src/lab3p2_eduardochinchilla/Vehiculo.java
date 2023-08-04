@@ -7,15 +7,15 @@ import java.util.Date;
 
 
 public class Vehiculo {
-   private int numeroPlaca;
+   private String numeroPlaca;
    private String marca;
    private String modelo;
    private String tipo;
    private Color color;
    private Date date;
-   private ArrayList vehiculo;
+   
 
-    public Vehiculo (int numeroPlaca, String marca, String modelo, String tipo, Color color, Date date) {
+    public Vehiculo (String numeroPlaca, String marca, String modelo, String tipo, Color color, Date date) {
         this.numeroPlaca = numeroPlaca;
         this.marca = marca;
         this.modelo = modelo;
@@ -24,11 +24,11 @@ public class Vehiculo {
         this.date = date;
     }
 
-    public int getNumeroPlaca() {
+    public String getNumeroPlaca() {
         return numeroPlaca;
     }
 
-    public void setNumeroPlaca(int numeroPlaca) {
+    public void setNumeroPlaca(String numeroPlaca) {
         //hay que validar 
         this.numeroPlaca = numeroPlaca;
     }
@@ -75,7 +75,7 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "numeroPlaca=" + numeroPlaca + ", marca=" + marca + ", modelo=" + modelo + ", tipo=" + tipo + ", color=" + color + ", date=" + date + ", vehiculo=" + vehiculo + '}';
+        return "Vehiculo{" + "numeroPlaca=" + numeroPlaca + ", marca=" + marca + ", modelo=" + modelo + ", tipo=" + tipo + ", color=" + color + ", date=" + date + '}';
     }
    
    

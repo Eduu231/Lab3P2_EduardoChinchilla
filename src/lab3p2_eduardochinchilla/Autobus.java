@@ -11,7 +11,7 @@ public class Autobus extends Vehiculo{
     private int cantidadEjes;
     private double longitud;
 
-    public Autobus(int cantidadPasajeros, int cantidadEjes, double longitud, int numeroPlaca, String marca, String modelo, String tipo, Color color, Date date) {
+    public Autobus(int cantidadPasajeros, int cantidadEjes, double longitud, String numeroPlaca, String marca, String modelo, String tipo, Color color, Date date) {
         super(numeroPlaca, marca, modelo, tipo, color, date);
         this.cantidadPasajeros = cantidadPasajeros;
         this.cantidadEjes = cantidadEjes;

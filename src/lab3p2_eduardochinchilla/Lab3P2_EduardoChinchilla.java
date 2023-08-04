@@ -1,50 +1,104 @@
 package lab3p2_eduardochinchilla;
 
+import java.awt.Color;
 import java.util.*;
+import javax.swing.JColorChooser;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+import java.text.ParseException;
 
 public class Lab3P2_EduardoChinchilla {
-    
+
     static Scanner read = new Scanner(System.in);
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws ParseException {
+
+        ArrayList<Vehiculo> vehiculo = new ArrayList();
+
         int opcion = 0;
-        
-        while (opcion != 8){
-            
+
+        while (opcion != 8) {
+
             opcion = menuCRUD();
-            
-            switch (opcion){
-                case 1:{
+
+            switch (opcion) {
+                case 1: {
+                    
+                    System.out.println("Agregar el numero de Placa: ");
+                    String placa = read.nextLine();
+                    read.nextLine();
+                    System.out.println("Agregar la marca del vehiculo: ");
+                    String marca = read.nextLine();
+                    
+                    System.out.println("Agregar el modelo: ");
+                    String modelo = read.nextLine();
+                    
+                    
+                    System.out.println("Agregar el tipo de vehiculo: [turismo, camioneta, etc...]");
+                    String tipoVehiculo = read.nextLine();
+                    
+                    System.out.println("elegir el color del vehiculo: ");
+                    Color color = JColorChooser.showDialog(null, "Color", Color.yellow);
+
+                    
+                    System.out.println("Ingrese el año del vehiculo: ");
+                    String fecha = read.nextLine();
+                    DateFormat date = new SimpleDateFormat("yyyy");
+                    Date date2 = new Date();
+                    date2 = date.parse(fecha);
+
+                    
+                    System.out.println("Agregar tipo de combustible: [diesel,regular o super]");
+                    String tipoCombustible = read.nextLine().toLowerCase();
+                    while (!tipoCombustible.equals("diesel") && !tipoCombustible.equals("regular") && !tipoCombustible.equals("super")) {
+                        System.out.println("tipo de combustible incorrecto");
+                        read.nextLine();
+                        System.out.println("Agregar tipo de combustible: [diesel,regular o super]");
+                        tipoCombustible = read.nextLine().toLowerCase();
+                    }
+                    System.out.println("Agregar numero de puertas: ");
+                    int puertas = read.nextInt();
+                    read.nextLine();
+                    System.out.println("Tipo de transmision: [automatico/manual]");
+                    String transmision = read.nextLine().toLowerCase();
+                    while (!transmision.equals("automatico") && !transmision.equals("manual")) {
+                        System.out.println("Error esa transmision es incorrecta");
+                        read.nextLine();
+                        System.out.println("Tipo de transmision: [automatico/manual]");
+                        transmision = read.nextLine().toLowerCase();
+
+                    }
+                    System.out.println("Numero de asientos: ");
+                    int asientos = read.nextInt();
+
+                    vehiculo.add(new Automovil(tipoCombustible, puertas, transmision, asientos, placa, marca, modelo, tipoVehiculo, color, date2));
                     break;
                 }
-                case 2:{
+                case 2: {
                     break;
                 }
-                case 3:{
+                case 3: {
                     break;
                 }
-                case 4:{
+                case 4: {
                     break;
                 }
-                case 5:{
+                case 5: {
                     break;
                 }
-                case 7:{
+                case 7: {
                     break;
                 }
-                case 8:{
+                case 8: {
                     System.out.println("Salio");
                     break;
                 }
             }
         }
-    
-        
-        
-        
-    }
-    
-    
-    
+
+    }// fin main
+
     private static int menuCRUD() {
         int op = 0;
 

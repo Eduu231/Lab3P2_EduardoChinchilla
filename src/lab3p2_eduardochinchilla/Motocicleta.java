@@ -11,7 +11,7 @@ public class Motocicleta extends Vehiculo{
     private double peso;
     private double consumoCombustible;
 
-    public Motocicleta(double velocidadMaxima, double peso, double consumoCombustible, int numeroPlaca, String marca, String modelo, String tipo, Color color, Date date) {
+    public Motocicleta(double velocidadMaxima, double peso, double consumoCombustible, String numeroPlaca, String marca, String modelo, String tipo, Color color, Date date) {
         super(numeroPlaca, marca, modelo, tipo, color, date);
         this.velocidadMaxima = velocidadMaxima;
         this.peso = peso;
