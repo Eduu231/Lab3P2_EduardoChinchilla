@@ -15,9 +15,10 @@ public class Lab3P2_EduardoChinchilla {
     static int contAutos = 0;
     static int contMotos = 0;
     static int contBus = 0;
-
+    static boolean entro = false;
     public static void main(String[] args) throws ParseException {
-
+       
+        
         ArrayList<Vehiculo> vehiculo = new ArrayList();
 
         int opcion = 0;
@@ -31,8 +32,9 @@ public class Lab3P2_EduardoChinchilla {
                     read.nextLine();
                     System.out.println("Agregar el numero de Placa: ");
                     String placa = read.nextLine();
-
+                    
                     while (!placa.startsWith("H") && !placa.startsWith("h")) {
+                    
                         System.out.println("Error ");
                         System.out.println("Agregar el numero de Placa: ");
                         placa = read.nextLine();
@@ -84,6 +86,7 @@ public class Lab3P2_EduardoChinchilla {
 
                     vehiculo.add(new Automovil(tipoCombustible, puertas, transmision, asientos, placa, marca, modelo, tipoVehiculo, color, date2));
                     contAutos++;
+                    entro = true;
                     break;
                 }
                 case 2: {
@@ -127,6 +130,7 @@ public class Lab3P2_EduardoChinchilla {
 
                     vehiculo.add(new Motocicleta(velocidad, peso, consumo, placa, marca, modelo, tipoVehiculo, color, date2));
                     contMotos++;
+                    entro = true;
                     break;
                 }
                 case 3: {
@@ -169,9 +173,11 @@ public class Lab3P2_EduardoChinchilla {
 
                     vehiculo.add(new Autobus(pasajeros, ejes, longitud, placa, marca, modelo, tipoVehiculo, color, date2));
                     contBus++;
+                    entro = true;
                     break;
                 }
                 case 4: {
+                    if (entro == true){
                     System.out.println(listarVehiculos(vehiculo));
                     System.out.println("Ingrese 1 para automoviles, 2 para motocicletas , 3 para autobuses y 4 para salir: ");
                     int decision = read.nextInt();
@@ -484,9 +490,13 @@ public class Lab3P2_EduardoChinchilla {
                             }
                         }
                     }
+                    }else{
+                        System.out.println("Debe ingresar primero antes de modificar");
+                    }
                     break;
                 }
                 case 5: {
+                    if (entro == true){
                     System.out.println(listarVehiculos(vehiculo));
 
                     System.out.println("Ingrese el indice del vehiculo a eliminar: ");
@@ -494,31 +504,46 @@ public class Lab3P2_EduardoChinchilla {
 
                     if (pos >= 0 && pos < vehiculo.size()) {
 
-                        vehiculo.remove(pos);
+                       if ( vehiculo.remove(pos) instanceof Automovil){
+                           contAutos--;
+                       }else if ( vehiculo.remove(pos) instanceof Motocicleta){
+                           contMotos--;
+                       }else if ( vehiculo.remove(pos) instanceof Autobus){
+                           contBus--;
+                       }
                         JOptionPane.showMessageDialog(null, "Se ha eliminado exitosamente");
                     } else {
                         System.out.println("El indice ingresado esta fuera de rango");
 
                     }
-
+                    }else{
+                        System.out.println("Debe agregar vehiculos antes de eliminar");
+                    }
                     break;
                 }
                 case 6: {
+                    if (entro == true){
                     System.out.println("Lista de vehiculos");
                     System.out.println(listarVehiculos(vehiculo));
 
                     System.out.println("Lista de Automoviles");
                     System.out.println(listarAutomoviles(vehiculo));
                     System.out.println("Hay un total de: " + contAutos + " automoviles");
+                    
                     System.out.println("Lista de Motocicletas");
                     System.out.println(listarMotos(vehiculo));
                     System.out.println("Hay un total de: " + contMotos + " motos");
+                    
                     System.out.println("Listar Autobuses");
                     System.out.println(listarAutobus(vehiculo));
                     System.out.println("Hay un total de: " + contBus + " buses");
+                    }else{
+                        System.out.println("Debe agregar vehiculos antes de listar");
+                    }
                     break;
                 }
                 case 7: {
+                    if (entro == true){
                     double totalPagar =0;
                     double TasaVehicular =525;
                     
@@ -543,6 +568,9 @@ public class Lab3P2_EduardoChinchilla {
 
                     }
                     System.out.println("Su total a pagar es: " + totalPagar);
+                    }else{
+                        System.out.println("Debe agregar un vehiculo antes de pagar la boleta");
+                    }
                     break;
                 }
                 case 8: {

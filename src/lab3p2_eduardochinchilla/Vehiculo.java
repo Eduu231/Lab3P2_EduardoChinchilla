@@ -14,7 +14,9 @@ public class Vehiculo {
    private Color color;
    private Date date;
    
-
+   public Vehiculo(){
+       
+   }
     public Vehiculo (String numeroPlaca, String marca, String modelo, String tipo, Color color, Date date) {
         this.numeroPlaca = numeroPlaca;
         this.marca = marca;
@@ -38,6 +40,7 @@ public class Vehiculo {
     }
 
     public void setMarca(String marca) {
+        
         this.marca = marca;
     }
 
