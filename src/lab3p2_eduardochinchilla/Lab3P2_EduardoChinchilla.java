@@ -369,6 +369,91 @@ public class Lab3P2_EduardoChinchilla {
                                 break;
                             }
                             case 3: {
+                                System.out.println(listarAutobus(vehiculo));
+                                System.out.println("Ingrese el indice a modicar:");
+                                int pos = read.nextInt();
+                                if (pos >= 0 && pos < vehiculo.size()) {
+
+                                    if (vehiculo.get(pos) instanceof Autobus) {
+                                        System.out.println("Atributo a modificar");
+                                        int atributoM = 0;
+                                        while (atributoM != 6) {
+
+                                            atributoM = menuModBus();
+
+                                            switch (atributoM) {
+                                                case 1: {
+                                                    read.nextLine();
+                                                    System.out.println("Agregar el numero de Placa: ");
+                                                    String placa = read.nextLine();
+
+                                                    while (!placa.startsWith("H") && !placa.startsWith("h")) {
+                                                        System.out.println("Error ");
+                                                        System.out.println("Agregar el numero de Placa: ");
+                                                        placa = read.nextLine();
+                                                    }
+                                                    ((Autobus) vehiculo.get(pos)).setNumeroPlaca(placa);
+                                                    break;
+                                                }
+                                                case 2: {
+                                                    System.out.println("Agregar la marca del vehiculo: ");
+                                                    String marca = read.nextLine();
+                                                    ((Autobus) vehiculo.get(pos)).setMarca(marca);
+                                                    break;
+                                                }
+                                                case 3: {
+                                                    System.out.println("Agregar el modelo: ");
+                                                    String modelo = read.nextLine();
+                                                    ((Autobus) vehiculo.get(pos)).setModelo(modelo);
+                                                    break;
+                                                }
+                                                case 4: {
+                                                    System.out.println("Agregar el tipo de vehiculo: [turismo, camioneta, etc...]");
+                                                    String tipoVehiculo = read.nextLine();
+                                                    ((Autobus) vehiculo.get(pos)).setTipo(tipoVehiculo);
+                                                    break;
+                                                }
+                                                case 5: {
+                                                    System.out.println("elegir el color del vehiculo: ");
+                                                    Color color = JColorChooser.showDialog(null, "Color", Color.yellow);
+                                                    ((Autobus) vehiculo.get(pos)).setColor(color);
+                                                    break;
+                                                }
+                                                case 6: {
+                                                    System.out.println("Ingrese el año del vehiculo: ");
+                                                    String fecha = read.nextLine();
+                                                    DateFormat date = new SimpleDateFormat("yyyy");
+                                                    Date date2 = new Date();
+                                                    date2 = date.parse(fecha);
+                                                    ((Autobus) vehiculo.get(pos)).setDate(date2);
+                                                    break;
+                                                }
+                                                case 7: {
+                                                    System.out.println("Ingrese la cantidad de pasajeros: ");
+                                                    int pasajeros = read.nextInt();
+                                                    ((Autobus) vehiculo.get(pos)).setCantidadPasajeros(pasajeros);
+                                                    break;
+                                                }
+                                                case 8: {
+                                                    System.out.println("Ingrese la cantidad de ejes: ");
+                                                    int ejes = read.nextInt();
+                                                    ((Autobus) vehiculo.get(pos)).setCantidadEjes(ejes);
+                                                    break;
+                                                }
+                                                case 9: {
+                                                    System.out.println("Ingrese la longitud en metros: ");
+                                                    double longitud = read.nextDouble();
+                                                    ((Autobus) vehiculo.get(pos)).setLongitud(longitud);
+                                                    break;
+                                                }
+                                                case 10: {
+                                                    System.out.println("Salir");
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                                 break;
                             }
                             case 4: {
