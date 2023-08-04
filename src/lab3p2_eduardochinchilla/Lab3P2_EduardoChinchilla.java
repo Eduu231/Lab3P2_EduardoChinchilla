@@ -7,10 +7,14 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.text.ParseException;
+import javax.swing.JOptionPane;
 
 public class Lab3P2_EduardoChinchilla {
 
     static Scanner read = new Scanner(System.in);
+    static int contAutos = 0;
+    static int contMotos = 0;
+    static int contBus = 0;
 
     public static void main(String[] args) throws ParseException {
 
@@ -79,18 +83,20 @@ public class Lab3P2_EduardoChinchilla {
                     int asientos = read.nextInt();
 
                     vehiculo.add(new Automovil(tipoCombustible, puertas, transmision, asientos, placa, marca, modelo, tipoVehiculo, color, date2));
+                    contAutos++;
                     break;
                 }
                 case 2: {
+                    read.nextLine();
                     System.out.println("Agregar el numero de Placa: ");
                     String placa = read.nextLine();
 
-                    while (!placa.startsWith("H") && !placa.startsWith("h")) {
+                    while (!placa.startsWith("B") && !placa.startsWith("b")) {
                         System.out.println("Error ");
                         System.out.println("Agregar el numero de Placa: ");
                         placa = read.nextLine();
                     }
-                    read.nextLine();
+
                     System.out.println("Agregar la marca del vehiculo: ");
                     String marca = read.nextLine();
 
@@ -120,9 +126,11 @@ public class Lab3P2_EduardoChinchilla {
                     double consumo = read.nextDouble();
 
                     vehiculo.add(new Motocicleta(velocidad, peso, consumo, placa, marca, modelo, tipoVehiculo, color, date2));
+                    contMotos++;
                     break;
                 }
                 case 3: {
+                    read.nextLine();
                     System.out.println("Agregar el numero de Placa: ");
                     String placa = read.nextLine();
 
@@ -131,7 +139,7 @@ public class Lab3P2_EduardoChinchilla {
                         System.out.println("Agregar el numero de Placa: ");
                         placa = read.nextLine();
                     }
-                    read.nextLine();
+
                     System.out.println("Agregar la marca del vehiculo: ");
                     String marca = read.nextLine();
 
@@ -149,7 +157,6 @@ public class Lab3P2_EduardoChinchilla {
                     DateFormat date = new SimpleDateFormat("yyyy");
                     Date date2 = new Date();
                     date2 = date.parse(fecha);
-                    //vehiculo
 
                     System.out.println("Ingrese la cantidad de pasajeros: ");
                     int pasajeros = read.nextInt();
@@ -161,6 +168,7 @@ public class Lab3P2_EduardoChinchilla {
                     double longitud = read.nextDouble();
 
                     vehiculo.add(new Autobus(pasajeros, ejes, longitud, placa, marca, modelo, tipoVehiculo, color, date2));
+                    contBus++;
                     break;
                 }
                 case 4: {
@@ -180,7 +188,7 @@ public class Lab3P2_EduardoChinchilla {
                                     if (vehiculo.get(pos) instanceof Automovil) {
                                         System.out.println("Atributo a modificar");
                                         int atributoM = 0;
-                                        while (atributoM != 6) {
+                                        while (atributoM != 11) {
 
                                             atributoM = menuModAuto();
 
@@ -199,18 +207,21 @@ public class Lab3P2_EduardoChinchilla {
                                                     break;
                                                 }
                                                 case 2: {
+                                                    read.nextLine();
                                                     System.out.println("Agregar la marca del vehiculo: ");
                                                     String marca = read.nextLine();
                                                     ((Automovil) vehiculo.get(pos)).setMarca(marca);
                                                     break;
                                                 }
                                                 case 3: {
+                                                    read.nextLine();
                                                     System.out.println("Agregar el modelo: ");
                                                     String modelo = read.nextLine();
                                                     ((Automovil) vehiculo.get(pos)).setModelo(modelo);
                                                     break;
                                                 }
                                                 case 4: {
+                                                    read.nextLine();
                                                     System.out.println("Agregar el tipo de vehiculo: [turismo, camioneta, etc...]");
                                                     String tipoVehiculo = read.nextLine();
                                                     ((Automovil) vehiculo.get(pos)).setTipo(tipoVehiculo);
@@ -223,6 +234,7 @@ public class Lab3P2_EduardoChinchilla {
                                                     break;
                                                 }
                                                 case 6: {
+                                                    read.nextLine();
                                                     System.out.println("Ingrese el año del vehiculo: ");
                                                     String fecha = read.nextLine();
                                                     DateFormat date = new SimpleDateFormat("yyyy");
@@ -232,6 +244,7 @@ public class Lab3P2_EduardoChinchilla {
                                                     break;
                                                 }
                                                 case 7: {
+                                                    read.nextLine();
                                                     System.out.println("Agregar tipo de combustible: [diesel,regular o super]");
                                                     String tipoCombustible = read.nextLine().toLowerCase();
                                                     while (!tipoCombustible.equals("diesel") && !tipoCombustible.equals("regular") && !tipoCombustible.equals("super")) {
@@ -250,6 +263,7 @@ public class Lab3P2_EduardoChinchilla {
                                                     break;
                                                 }
                                                 case 9: {
+                                                    read.nextLine();
                                                     System.out.println("Tipo de transmision: [automatico/manual]");
                                                     String transmision = read.nextLine().toLowerCase();
                                                     while (!transmision.equals("automatico") && !transmision.equals("manual")) {
@@ -288,7 +302,7 @@ public class Lab3P2_EduardoChinchilla {
                                     if (vehiculo.get(pos) instanceof Motocicleta) {
                                         System.out.println("Atributo a modificar");
                                         int atributoM = 0;
-                                        while (atributoM != 6) {
+                                        while (atributoM != 10) {
 
                                             atributoM = menuModMoto();
 
@@ -307,18 +321,21 @@ public class Lab3P2_EduardoChinchilla {
                                                     break;
                                                 }
                                                 case 2: {
+                                                    read.nextLine();
                                                     System.out.println("Agregar la marca del vehiculo: ");
                                                     String marca = read.nextLine();
                                                     ((Motocicleta) vehiculo.get(pos)).setMarca(marca);
                                                     break;
                                                 }
                                                 case 3: {
+                                                    read.nextLine();
                                                     System.out.println("Agregar el modelo: ");
                                                     String modelo = read.nextLine();
                                                     ((Motocicleta) vehiculo.get(pos)).setModelo(modelo);
                                                     break;
                                                 }
                                                 case 4: {
+                                                    read.nextLine();
                                                     System.out.println("Agregar el tipo de vehiculo: [turismo, camioneta, etc...]");
                                                     String tipoVehiculo = read.nextLine();
                                                     ((Motocicleta) vehiculo.get(pos)).setTipo(tipoVehiculo);
@@ -331,6 +348,7 @@ public class Lab3P2_EduardoChinchilla {
                                                     break;
                                                 }
                                                 case 6: {
+                                                    read.nextLine();
                                                     System.out.println("Ingrese el año del vehiculo: ");
                                                     String fecha = read.nextLine();
                                                     DateFormat date = new SimpleDateFormat("yyyy");
@@ -377,7 +395,7 @@ public class Lab3P2_EduardoChinchilla {
                                     if (vehiculo.get(pos) instanceof Autobus) {
                                         System.out.println("Atributo a modificar");
                                         int atributoM = 0;
-                                        while (atributoM != 6) {
+                                        while (atributoM != 10) {
 
                                             atributoM = menuModBus();
 
@@ -396,18 +414,21 @@ public class Lab3P2_EduardoChinchilla {
                                                     break;
                                                 }
                                                 case 2: {
+                                                    read.nextLine();
                                                     System.out.println("Agregar la marca del vehiculo: ");
                                                     String marca = read.nextLine();
                                                     ((Autobus) vehiculo.get(pos)).setMarca(marca);
                                                     break;
                                                 }
                                                 case 3: {
+                                                    read.nextLine();
                                                     System.out.println("Agregar el modelo: ");
                                                     String modelo = read.nextLine();
                                                     ((Autobus) vehiculo.get(pos)).setModelo(modelo);
                                                     break;
                                                 }
                                                 case 4: {
+                                                    read.nextLine();
                                                     System.out.println("Agregar el tipo de vehiculo: [turismo, camioneta, etc...]");
                                                     String tipoVehiculo = read.nextLine();
                                                     ((Autobus) vehiculo.get(pos)).setTipo(tipoVehiculo);
@@ -420,6 +441,7 @@ public class Lab3P2_EduardoChinchilla {
                                                     break;
                                                 }
                                                 case 6: {
+                                                    read.nextLine();
                                                     System.out.println("Ingrese el año del vehiculo: ");
                                                     String fecha = read.nextLine();
                                                     DateFormat date = new SimpleDateFormat("yyyy");
@@ -465,9 +487,40 @@ public class Lab3P2_EduardoChinchilla {
                     break;
                 }
                 case 5: {
+                    System.out.println(listarVehiculos(vehiculo));
+
+                    System.out.println("Ingrese el indice del vehiculo a eliminar: ");
+                    int pos = read.nextInt();
+
+                    if (pos >= 0 && pos < vehiculo.size()) {
+
+                        vehiculo.remove(pos);
+                        JOptionPane.showMessageDialog(null, "Se ha eliminado exitosamente");
+                    } else {
+                        System.out.println("El indice ingresado esta fuera de rango");
+
+                    }
+
+                    break;
+                }
+                case 6: {
+                    System.out.println("Lista de vehiculos");
+                    System.out.println(listarVehiculos(vehiculo));
+
+                    System.out.println("Lista de Automoviles");
+                    System.out.println(listarAutomoviles(vehiculo));
+                    System.out.println("Hay un total de: " + contAutos + " automoviles");
+                    System.out.println("Lista de Motocicletas");
+                    System.out.println(listarMotos(vehiculo));
+                    System.out.println("Hay un total de: " + contMotos + " motos");
+                    System.out.println("Listar Autobuses");
+                    System.out.println(listarAutobus(vehiculo));
+                    System.out.println("Hay un total de: " + contBus + " buses");
                     break;
                 }
                 case 7: {
+                    System.out.println(listarVehiculos(vehiculo));
+                    
                     break;
                 }
                 case 8: {
